@@ -1,0 +1,14 @@
+sudo umount /dev/sdb*
+sleep 1
+sudo parted /dev/sdb --script -- mklabel msdos
+sleep1
+sudo parted /dev/sdb --script -- mkpart primary fat32 1MiB 100%
+sleep 1
+sudo mkfs.fat -F32 /dev/sdb1
+sleep 1
+sudo dd if=/home/lab/Downloads/2021-05-07-raspios-buster-armhf-lite.img of=/dev/sdb bs=4M; sync
+sleep 3
+sudo mount /dev/sdb1 /mnt
+sleep 1
+touch /mnt/ssh
+umount /mnt

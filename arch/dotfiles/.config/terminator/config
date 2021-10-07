@@ -1,0 +1,30 @@
+[global_config]
+  window_state = fullscreen
+  inactive_color_offset = 0.8055555555555556
+[keybindings]
+  split_horiz = <Alt>o
+  split_vert = <Alt>i
+  broadcast_off = <Primary><Alt>o
+  broadcast_group = <Primary><Shift>g
+  broadcast_all = <Primary><Shift>a
+[profiles]
+  [[default]]
+    background_darkness = 0.95
+    background_type = transparent
+    cursor_color = "#aaaaaa"
+    font = Monospace 15
+    foreground_color = "#eeeeec"
+    show_titlebar = False
+    scrollbar_position = hidden
+    scrollback_infinite = True
+    word_chars = "-,?%&#:_"
+    use_system_font = False
+[layouts]
+  [[default]]
+    [[[window0]]]
+      type = Window
+      parent = ""
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+[plugins]

@@ -7,8 +7,10 @@ mv configs/terminator /home/$uboi/.config/terminator/config
 chown $uboi /home/$uboi/.config/terminator/config
 
 
-apt install -fy build-essential libelf-dev linux-headers-`uname -r` bc dkms apt-transport-https terminator thunderbird libreoffice libgconf-2-4 libappindicator1 libc++1
-
+apt install -fy snap build-essential libelf-dev linux-headers-`uname -r` bc dkms apt-transport-https terminator cherrytree thunderbird libreoffice libgconf-2-4 libappindicator1 libc++1
+snap install ao
+snap install blender --classic
+snap install spotify obs-studio blender vlc discord
 cp -r pwnnotes/ /opt
 chmod 777 /opt/pwnnotes/setup.sh
 bash /opt/pwnnotes/setup.sh
@@ -49,7 +51,6 @@ apt --fix-broken install
 
 #Download
 x-www-browser https://www.realvnc.com/en/connect/download/viewer/
-x-www-browser https://discord.com/download
 x-www-browser https://obsidian.md/download
 
 chmod -R 777 /opt/

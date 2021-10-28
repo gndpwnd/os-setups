@@ -7,10 +7,9 @@ mv configs/terminator /home/$uboi/.config/terminator/config
 chown $uboi /home/$uboi/.config/terminator/config
 
 
-apt install -fy snap build-essential libelf-dev linux-headers-`uname -r` bc dkms apt-transport-https terminator cherrytree thunderbird libreoffice libgconf-2-4 libappindicator1 libc++1
-snap install ao
-snap install blender --classic
-snap install spotify obs-studio blender vlc discord
+sudo apt install -fy snap build-essential libelf-dev linux-headers-`uname -r` bc dkms apt-transport-https terminator cherrytree thunderbird libreoffice libgconf-2-4 libappindicator1 libc++1 git docker iperf3 
+sudo snap install ao spotify obs-studio vlc discord
+sudo snap install blender --classic
 cp -r pwnnotes/ /opt
 chmod 777 /opt/pwnnotes/setup.sh
 bash /opt/pwnnotes/setup.sh

@@ -22,3 +22,4 @@ alias dvp="docker volume prune"
 alias esf="ssh-agent -s; ssh-add "
 alias dp='curl parrot.live'
 alias rpis='cssh -l pi 192.168.0.11 192.168.0.12 192.168.0.13 192.168.0.14 -p 222'
+alias lab='cat /OffSec/pwk-oscp-official/lab-conn/note.txt && echo "" && sudo openvpn /OffSec/pwk-oscp-official/lab-conn/OS-548490-PWK.ovpn'

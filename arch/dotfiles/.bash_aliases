@@ -8,15 +8,18 @@ alias bloodhound='cd bash /opt/bloodhound/Bloodhound'
 alias screenres='bash /opt/screenres.sh'
 alias thmvpn='sudo openvpn ~/Desktop/thm.ovpn'
 alias htbvpn='sudo openvpn ~/Desktop/htb.ovpn'
-
-alias lab='cat /OffSec/pwk-oscp-official/lab-conn/note.txt && echo "" && sudo openvpn /OffSec/pwk-oscp-official/lab-conn/OS-548490-PWK.ovpn'
-gg ()
-{
-        git add -A && git commit -m "changes" && git push
-}
-gc ()
-{
-        git clone $1
-}
-
+alias r='FILE=$1; rustc $FILE && bash $FILE | rev | cut -c4- | rev'
+alias gb='git checkout'
+alias gbs='git push --set-upstream origin nn-beta'
+alias gc='git clone $1'
+alias gg='git add -A && git commit -m "reorg" && git push' 
+alias gp='git push'
+alias di="docker images"
+alias dc="docker container ls"
+alias dcp="docker container prune"
+alias dv="docker volume ls"
+alias dvp="docker volume prune"
+alias esf="ssh-agent -s; ssh-add "
 alias dp='curl parrot.live'
+alias rpis='cssh -l pi 192.168.0.11 192.168.0.12 192.168.0.13 192.168.0.14 -p 222'
+alias lab='cat /OffSec/pwk-oscp-official/lab-conn/note.txt && echo "" && sudo openvpn /OffSec/pwk-oscp-official/lab-conn/OS-548490-PWK.ovpn'

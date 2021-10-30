@@ -1,8 +1,28 @@
-# os_setups
-Just a repo with scripts that help to automate setting up machines.
+# OS Setups
+> Scripts and Containers for deploying custom virtual environments
 
 
+### Script Overview
 
-Quickstart for Debian (Kali, Parrot, Ubuntu etc...)
 
-    cd /opt/ && git clone https://github.com/Labruhtoory/os_setups.git && chmod +x os_setups/deb_os.sh && ./os_setups/deb_os.sh
+### VMware
+
+1. Create, Install, and run a VM. 
+2. Execute the setup scripts in respect to the OS, and the VM use case.
+3. See the following commands for reference:
+
+Ubuntu:
+            /opt/path/to/setup.sh
+Arch:
+            /opt/path/to/setup.sh
+
+### Docker
+
+See the following Commands to setup docker containers:
+
+1. Build OR Pull
+
+2. Run
+
+3. Interact
+   **Visit the Following Urls to connect to the container's VNC**

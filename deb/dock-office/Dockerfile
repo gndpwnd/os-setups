@@ -1,89 +1,87 @@
 FROM ubuntu:20.04
 
-### User Setup
-ENV ROOTPASS=toor
-ENV USERNAME=lab
-ENV USERPASS=toor
-ENV VNCPASSWD=toortoor
-ENV VNCRES=1280x1500
+ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
 
-### VNC Setup
+#  ----------------- DNS ----------------- 
+
+ENV NS1=1.1.1.1 \
+    NS2=1.0.0.1
+
+# ----------------- Main Firewall -----------------
+
+ENV FTP1_PORT=20 \
+    FTP2_PORT=21 \
+    SSH_PORT=22 \
+    HTTP_PORT=80 \
+    SMB_PORT=139
+
+EXPOSE $FTP1_PORT $FTP2_PORT $SSH_PORT $HTTP_PORT $SMB_PORT
+
+#  ----------------- Creds ----------------- 
+
+ENV ROOTPASS=toor \
+    USERNAME=lab \
+    USERPASS=toor \
+    VNCPASSWD=toortoor \
+
+# ----------------- VNC Setup ----------------- 
+
 ENV DISPLAY=:1 \
     VNC_PORT=5566 \
     NO_VNC_PORT=6969 \
-    SSH_PORT=22
-EXPOSE $VNC_PORT $NO_VNC_PORT $SSH_PORT
-ENV PYTHONUNBUFFERED TRUE
-
-
-### Envrionment config
-ENV HOME=/headless \
-    TERM=xterm \
-    STARTUPDIR=/init \
-    INST_SCRIPTS=/opt/os-install-src \
     NO_VNC_HOME=/headless/noVNC \
     DEBIAN_FRONTEND=noninteractive \
     VNC_COL_DEPTH=24 \
-    VNC_RESOLUTION=$VNCRES \
+    VNC_RESOLUTION=1280x1500 \
     VNC_PW=$VNCPASSWD \
     VNC_VIEW_ONLY=false
+
+EXPOSE $VNC_PORT $NO_VNC_PORT
+ENV PYTHONUNBUFFERED TRUE
+
+
+#  ----------------- Envrionment config ----------------- 
+
+ENV HOME=/home/$USERNAME\
+    TERM=xterm \
+    STARTUPDIR=/init \
+    INST_SCRIPTS=/opt/scripts
 WORKDIR $HOME
 
-### Networking
 
-RUN echo "nameserver 1.1.1.1" > /etc/resolv.conf
-RUN echo "nameserver 1.0.0.1" >> /etc/resolv.conf
+# ----------------- Adduser ----------------- 
 
-### Office Tool Setup
+RUN echo 'root:$ROOTPASS' | chpasswd
+RUN echo -e "${USERPASS}\n${USERPASS}\n\n\n\n\n\nY\n"
+RUN echo '$USERNAME:$USERPASS' | chpasswd
 
-RUN apt update && apt install -fy wget
-
-ADD os-install-src /opt/os-install-src
-
-RUN $INST_SCRIPTS/install/install_custom_fonts.sh
-
-RUN apt install -y tigervnc-standalone-server
-RUN $INST_SCRIPTS/no_vnc.sh
-
-RUN $INST_SCRIPTS/firefox.sh
-RUN $INST_SCRIPTS/install/chrome.sh
-
-### Setup Fs
-
-RUN chmod -R 777 /opt/
-RUN rm -rf /opt/*.deb /opt/*.xz /opt/*.tar
-
-RUN find $INST_SCRIPTS -name '*.sh' -exec chmod a+x {} +
-RUN find $INST_SCRIPTS/install -name '*.sh' -exec chmod a+x {} +
-
-RUN $INST_SCRIPTS/install/tools.sh
-ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
-
-RUN apt-get -y update && apt-get -y install python3 python3-pip gcc g++ gzip p7zip p7zip-full build-essential libelf-dev linux-headers-`uname -r` bc dkms apt-transport-https terminator thunderbird libreoffice libgconf-2-4 libappindicator1 libc++1 git docker iperf3 xwallpaper sudo git docker curl wget
-
-CMD ["/opt/install-tools.sh"]
-
-RUN apt --fix-broken install
-
-
-### Desktop ui 
-RUN $INST_SCRIPTS/install/xfce_ui.sh
-ADD os-install-src/xfce/ $HOME/
-
-
-RUN $INST_SCRIPTS/install/libnss_wrapper.sh
-ADD os-install-src/scripts $STARTUPDIR
-RUN $INST_SCRIPTS/set_user_permission.sh $STARTUPDIR $HOME
-
-#RUN echo 'root:$ROOTPASS' | chpasswd
-#RUN useradd -m -u 2001 $USERNAME
-#RUN echo '$USERNAME:$USERPASS' | chpasswd
-COPY dotfiles/* $HOME/
+COPY dotfiles/ $HOME/
 COPY wlps/* ${HOME}/Pictures/wallpapers/
 
-### Customize UI
-#RUN xwallpaper --zoom ${HOME}/Pictures/wallpapers/3d-dark.jpg
 
+# ----------------- Install -----------------
+
+ADD scripts $INST_SCRIPTS
+RUN chmod -R 777 /opt/
+
+RUN $INST_SCRIPTS/firefox.sh
+RUN $INST_SCRIPTS/install-tools.sh
+RUN $INST_SCRIPTS/no_vnc.sh
+
+RUN rm -rf /opt/*.deb /opt/*.xz /opt/*.tar
+
+#  ----------------- Post Install ----------------- 
+
+RUN $INST_SCRIPTS/chrome-init.sh
+
+# ----------------- Dotfiles ----------------- 
+
+RUN $INST_SCRIPTS/install/xfce_ui.sh
+COPY dotfiles/ $HOME/
+
+COPY scripts/post/ $STARTUPDIR
+RUN $INST_SCRIPTS/set_user_permission.sh $STARTUPDIR $HOME
+RUN xwallpaper --zoom ${HOME}/Pictures/wallpapers/3d-dark.jpg
 
 ENTRYPOINT ["/init/vnc_startup.sh"]
 CMD ["--wait"]

@@ -20,18 +20,18 @@ Arch:
 
 See the following Commands to setup docker containers:
 
-1. Run without persistant storage drive
+1. **Run without persistant storage drive**
 
-**Non-interactive**
+Non-Interactive
 
     docker run -d -p 5901:5901 -p 6969:6969 {image_name}
             
-**Interactive (Ctrl+p & Ctrl+q to exit interactive mode)**
+Interactive (Ctrl+p & Ctrl+q to exit interactive mode)
 
     docker run -it -p 5901:5901 -p 6969:6969 {image_name} bash
 
 
-2. Run with Persistent storage drive 
+2. **Run with Persistent storage drive**
 
 **Ubuntu**
             docker run 

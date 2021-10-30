@@ -23,8 +23,11 @@ See the following Commands to setup docker containers:
 1. Run without persistant storage drive
 
 **Non-interactive**
+
             docker run -d -p 5901:5901 -p 6969:6969 {image_name}
+            
 **Interactive (Ctrl+p & Ctrl+q to exit interactive mode)**
+
             docker run -it -p 5901:5901 -p 6969:6969 {image_name} bash
 
 

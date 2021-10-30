@@ -20,9 +20,18 @@ Arch:
 
 See the following Commands to setup docker containers:
 
-1. Build OR Pull
+1. Run without persistant storage drive
 
-2. Run
+**Non-interactive**
+            docker run -d -p 5901:5901 -p 6969:6969 {image_name}
+**Interactive (Ctrl+p & Ctrl+q to exit interactive mode)**
+            docker run -it -p 5901:5901 -p 6969:6969 {image_name} bash
 
-3. Interact
+
+2. Run with Persistent storage drive 
+
+**Ubuntu**
+            docker run 
+            
+4. Interact
    **Visit the Following Urls to connect to the container's VNC**

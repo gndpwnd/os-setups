@@ -24,11 +24,11 @@ See the following Commands to setup docker containers:
 
 Non-Interactive
 
-    docker run -d -it -p 5901:5901 -p 6969:6969 {image_name} bash
+    docker run -d --name {name} -it -p 5901:5901 -p 6969:6969 {image_name} bash
             
 Interactive (Ctrl+p & Ctrl+q to exit interactive mode)
 
-    docker run -it -p 5901:5901 -p 6969:6969 {image_name} bash
+    docker run --name {name} -it -p 5901:5901 -p 6969:6969 {image_name} bash
 
 
 2. **Run with Persistent storage drive**

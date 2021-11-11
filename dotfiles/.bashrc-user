@@ -53,7 +53,6 @@ PS1="${BLUE}\u${PURPLE}@${RED}\h ${CYAN}\w\n${GREEN}${get_git_info} \[${WHITE}$â
 #PS1="${BLUE}\u${PURPLE}@${RED}\h ${CYAN}\w\n \[${WHITE}â†’ ${GRAY}"
 
 ##########   ENV   ##########
-SSH_AUTH_SOCK=
 alias ls='ls --color=auto'
 source ~/.bash_aliases
 export PATH=$PATH:~/.platformio/penv/bin

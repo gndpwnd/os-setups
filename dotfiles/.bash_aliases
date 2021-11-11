@@ -27,3 +27,4 @@ alias esf="ssh-agent -s; ssh-add "
 alias dp='curl parrot.live'
 alias vncv='cd /opt/ && ./VNC-Viewer-6.21.920-Linux-x64 &'
 alias psa='ps aux | grep'
+alias sc='SSH_AUTH_SOCK='

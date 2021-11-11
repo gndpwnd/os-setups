@@ -1,6 +1,3 @@
-#
-# ~/.bashrc
-#
 ##########   COLORS   ##########
 
 export NC='\e[0m' # No Color
@@ -21,21 +18,42 @@ export LIGHT_CYAN='\e[1;36m'
 export LIGHT_GRAY='\e[0;37m'
 export WHITE='\e[1;37m'
 
-#########   OPTIONS   ##########
+##########   OPTIONS   ##########
 
 export TERM=xterm-color
 export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
+##########   FUNCTIONS   ##########
+get_git_tru() {
+  if git rev-parse --git-dir > /dev/null 2>&1; then
+    echo "git "
+  fi
+}
+#get_git_repo(){
+#	gitrepocheck=$(basename `git rev-parse --show-toplevel` | grep fatal)
+#
+#	if [ ${gitrepocheck} == "fatal" ]; then	
+#		:
+#	else
+#		echo "${gitrepocheck}:"
+#	fi
+#}
+get_git_branch() {
+     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+##########   MAKE SHORTHAND VARS   ##########
+get_git_info="$(get_git_tru)$(get_git_branch)"
 
-# If not running interactively, don't do anything
-[[ $- != *i* ]] && return
+##########   PS1    ##########
+[[ $- != *i* ]] && return	
+PS1="${YELLOW}¯\_(°~°)_/¯${PURPLE}@${RED}\h ${CYAN}\w\n${GREEN}${get_git_info} \[${WHITE}#→ ${GRAY}"
 
-alias ls='ls --color=auto'	
-PS1="${GREEN}¯\_('~')_/¯${PURPLE}@${RED}\h ${CYAN}\w\n \[${WHITE}→ ${GRAY}"
-#PS1='[\u@\h \W]\$ '
+
+#PS1="${BLUE}\u${PURPLE}@${RED}\h ${CYAN}\w\n \[${WHITE}→ ${GRAY}"
 
 ##########   ENV   ##########
-
+SSH_AUTH_SOCK=
+alias ls='ls --color=auto'
 source ~/.bash_aliases
 export PATH=$PATH:~/.platformio/penv/bin

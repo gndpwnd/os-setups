@@ -47,7 +47,7 @@ get_git_info="$(get_git_tru)$(get_git_branch)"
 
 ##########   PS1    ##########
 [[ $- != *i* ]] && return	
-PS1="${YELLOW}¯\_(°~°)_/¯${PURPLE}@${RED}\h ${CYAN}\w\n${GREEN}${get_git_info} \[${WHITE}#→ ${GRAY}"
+PS1="${YELLOW}¯\_(°~°)_/¯${PURPLE}@${RED}\h ${CYAN}\w\n${GREEN}${get_git_info} \[${WHITE}#→ ${LIGHT_GRAY}"
 
 
 #PS1="${BLUE}\u${PURPLE}@${RED}\h ${CYAN}\w\n \[${WHITE}→ ${GRAY}"

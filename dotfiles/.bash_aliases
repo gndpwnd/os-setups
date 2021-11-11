@@ -1,4 +1,5 @@
 alias la='ls -la'
+alias rf='rm -rf'
 alias py='python3'
 alias d='rm -rf'
 alias firefox='/usr/lib/firefox/firefox'

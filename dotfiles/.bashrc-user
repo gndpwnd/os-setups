@@ -1,3 +1,33 @@
+##########   Gradient Math   ##########
+num_of_char_in_user=3
+num_of_char_in_host=6
+
+half=2
+half_user=$((num_of_char_in_user / half ))
+half_host=$((num_of_char_in_host / half ))
+
+if [ "$half_host" == *".5" ]; then
+  $h1=$half_host + 1
+  $h2=$half_host
+  start_host=${HOSTNAME:0:$h1}  
+  end_host=${HOSTNAME: -h2}
+else
+  start_host=${HOSTNAME:0:half_host}  
+  end_host=${HOSTNAME: -half_host}
+fi
+
+if [ "$half_user" == "*.5" ]; then
+  $u1=$half_user
+  $u2=$half_user + 1
+  start_user=${USER:0:u1}  
+  end_user=${USER: -u2}
+else
+  start_user=${USER:0:half_user}  
+  end_user=${USER: -half_user}
+fi
+
+echo
+
 
 ##########   COLORS   ##########
 
@@ -25,9 +55,7 @@ export TERM=xterm-color
 export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
-
 ##########   FUNCTIONS   ##########
-
 get_git() {
   if git rev-parse --git-dir > /dev/null 2>&1; then
     git_repo=$(basename `git rev-parse --show-toplevel`)
@@ -38,11 +66,16 @@ get_git() {
 
 ##########   PS1    ##########
 
-[[ $- != *i* ]] && return 
+[[ $- != *i* ]] && return	
+
+#gradient="${BLUE}${start_user}${PURPLE}${end_user}@${start_host}${RED}${end_host}"
+#dir=" ${CYAN}\w\n${GREEN}$(get_git) \[${WHITE}$→ ${LIGHT_GRAY}"
+#PS1="${gradient}${dir}"
+
 PS1="${BLUE}\u${PURPLE}@${RED}\h ${CYAN}\w\n${GREEN}$(get_git) \[${WHITE}$→ ${LIGHT_GRAY}"
 
 ##########   ENV   ##########
-
 alias ls='ls --color=auto'
 source ~/.bash_aliases
+
 export PATH=$PATH:~/.platformio/penv/bin

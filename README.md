@@ -15,26 +15,3 @@ Ubuntu:
             /opt/path/to/setup.sh
 Arch:
             /opt/path/to/setup.sh
-
-### Docker
-
-See the following Commands to setup docker containers:
-
-1. **Run without persistant storage drive**
-
-Non-Interactive
-
-    docker run -d --name {name} -it -p 5901:5901 -p 6969:6969 {image_name} bash
-            
-Interactive (Ctrl+p & Ctrl+q to exit interactive mode)
-
-    docker run --name {name} -it -p 5901:5901 -p 6969:6969 {image_name} bash
-
-
-2. **Run with Persistent storage drive**
-
-**Ubuntu**
-            docker run 
-            
-4. Interact
-   **Visit the Following Urls to connect to the container's VNC**

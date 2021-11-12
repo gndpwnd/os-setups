@@ -5,7 +5,7 @@
 ### Script Overview
 
 
-### VMware
+**VMware**
 
 1. Create, Install, and run a VM. 
 2. Execute the setup scripts in respect to the OS, and the VM use case.

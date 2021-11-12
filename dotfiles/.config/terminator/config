@@ -1,0 +1,42 @@
+[global_config]
+  window_state = fullscreen
+  inactive_color_offset = 0.8055555555555556
+  suppress_multiple_term_dialog = True
+  putty_paste_style_source_clipboard = True
+[keybindings]
+  new_tab = <Super>u
+  cycle_next = <Super>b
+  cycle_prev = <Super>x
+  go_next = <Alt>n
+  go_prev = <Alt>p
+  split_horiz = <Alt>o
+  split_vert = <Alt>i
+  close_term = <Alt>e
+  next_tab = <Primary>Tab
+  prev_tab = <Primary><Shift>Tab
+  reset = <Primary><Shift>r
+  broadcast_off = <Primary><Alt>o
+  broadcast_group = <Primary><Shift>g
+  broadcast_all = <Primary><Shift>a
+[profiles]
+  [[default]]
+    background_darkness = 0.95
+    background_type = transparent
+    cursor_color = "#aaaaaa"
+    font = Monospace 15
+    foreground_color = "#9a9996"
+    show_titlebar = False
+    scrollbar_position = hidden
+    scrollback_infinite = True
+    word_chars = "-,?%&#:_"
+    use_system_font = False
+    bold_is_bright = True
+[layouts]
+  [[default]]
+    [[[window0]]]
+      type = Window
+      parent = ""
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+[plugins]

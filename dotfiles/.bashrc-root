@@ -25,34 +25,20 @@ export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 ##########   FUNCTIONS   ##########
-get_git_tru() {
+get_git() {
   if git rev-parse --git-dir > /dev/null 2>&1; then
-    echo "git "
+    git_repo=$(basename `git rev-parse --show-toplevel`)
+    git_branch=$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/')
+    echo "git ${git_repo}:${git_branch}"
   fi
 }
-#get_git_repo(){
-#	gitrepocheck=$(basename `git rev-parse --show-toplevel` | grep fatal)
-#
-#	if [ ${gitrepocheck} == "fatal" ]; then	
-#		:
-#	else
-#		echo "${gitrepocheck}:"
-#	fi
-#}
-get_git_branch() {
-     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
-}
-##########   MAKE SHORTHAND VARS   ##########
-get_git_info="$(get_git_tru)$(get_git_branch)"
 
 ##########   PS1    ##########
-[[ $- != *i* ]] && return	
-PS1="${YELLOW}¯\_(°~°)_/¯${PURPLE}@${RED}\h ${CYAN}\w\n${GREEN}${get_git_info} \[${WHITE}#→ ${LIGHT_GRAY}"
-
-
-#PS1="${BLUE}\u${PURPLE}@${RED}\h ${CYAN}\w\n \[${WHITE}→ ${GRAY}"
+[[ $- != *i* ]] && return 
+PS1="${YELLOW}¯\_(°~°)_/¯${PURPLE}@${RED}\h ${CYAN}\w\n${GREEN}$(get_git) \[${WHITE}$→ ${LIGHT_GRAY}"
 
 ##########   ENV   ##########
+SSH_AUTH_SOCK=
 alias ls='ls --color=auto'
 source ~/.bash_aliases
 export PATH=$PATH:~/.platformio/penv/bin

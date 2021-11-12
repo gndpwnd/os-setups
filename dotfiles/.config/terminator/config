@@ -7,17 +7,19 @@
   new_tab = <Super>u
   cycle_next = <Super>b
   cycle_prev = <Super>x
-  go_next = <Alt>n
-  go_prev = <Alt>p
+  go_next = <Shift><Alt>n
+  go_prev = <Primary><Shift>p
   split_horiz = <Alt>o
   split_vert = <Alt>i
   close_term = <Alt>e
-  next_tab = <Primary>Tab
+  next_tab = <Alt>n
   prev_tab = <Primary><Shift>Tab
   reset = <Primary><Shift>r
   broadcast_off = <Primary><Alt>o
   broadcast_group = <Primary><Shift>g
   broadcast_all = <Primary><Shift>a
+  edit_tab_title = <Primary><Shift>n
+  next_profile = <Alt>p
 [profiles]
   [[default]]
     background_darkness = 0.95

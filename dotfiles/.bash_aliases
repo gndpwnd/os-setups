@@ -34,8 +34,13 @@ alias gc='git clone'
 alias gb='git checkout'
 # make a new branch
 alias gbn='git checkout -b'
+# delete a branch
+alias gbd='git branch -d'
+# merge a branch
+alias gm='git merge'
 
-alias gp='git add -A && git commit -m "update"' 
+alias gs='git status'
+alias gp='git add -A && git commit -m "update"'
 alias yeet='git push --set-upstream origin'
 alias yoink='git pull'
 

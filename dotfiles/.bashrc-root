@@ -24,7 +24,9 @@ export TERM=xterm-color
 export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
+
 ##########   FUNCTIONS   ##########
+
 get_git() {
   if git rev-parse --git-dir > /dev/null 2>&1; then
     git_repo=$(basename `git rev-parse --show-toplevel`)
@@ -34,11 +36,12 @@ get_git() {
 }
 
 ##########   PS1    ##########
+
 [[ $- != *i* ]] && return 
-PS1="${YELLOW}¯\_(°~°)_/¯${PURPLE}@${RED}\h ${CYAN}\w\n${GREEN}$(get_git) \[${WHITE}$→ ${LIGHT_GRAY}"
+PS1="${YELLOW}¯\_(°~°)_/¯${PURPLE}@${RED}\h ${CYAN}\w\n${GREEN}$(get_git) \[${WHITE}#→ ${LIGHT_GRAY}"
 
 ##########   ENV   ##########
-SSH_AUTH_SOCK=
+
 alias ls='ls --color=auto'
 source ~/.bash_aliases
 export PATH=$PATH:~/.platformio/penv/bin

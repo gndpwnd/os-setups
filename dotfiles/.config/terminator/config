@@ -11,7 +11,7 @@
   go_prev = <Primary><Shift>p
   split_horiz = <Alt>o
   split_vert = <Alt>i
-  close_term = <Alt>e
+  close_term = <Primary>e
   next_tab = <Alt>u
   prev_tab = <Primary><Shift>Tab
   reset = <Primary><Shift>r

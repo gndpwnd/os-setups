@@ -14,7 +14,7 @@ alias esf="ssh-agent -s; ssh-add"
 
 alias thmvpn='sudo openvpn ~/Desktop/thm.ovpn'
 alias htbvpn='sudo openvpn ~/Desktop/htb.ovpn'
-#OFFSECVPNHERE
+#OFFSECVPN
 
 ##########   Compilers   ##########
 
@@ -28,10 +28,12 @@ alias r='FILE=$1; rustc $FILE && bash $FILE | rev | cut -c4- | rev'
 
 
 alias gc='git clone'
-# make a new branch
-alias gnb='git checkout -b'
+
 # switch branch
 alias gb='git checkout'
+# make a new branch
+alias gbn='git checkout -b'
+
 alias gp='git add -A && git commit -m "update"' 
 alias yeet='git push --set-upstream origin'
 alias yoink='git pull'

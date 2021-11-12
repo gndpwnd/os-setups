@@ -69,3 +69,7 @@ alias room='bash /opt/pwnnotes/pwnnotes_start.sh'
 alias mc='macchanger'
 
 ##########   DEV00PS   ##########
+
+### PY ###
+# pip install rich
+alias rich='python -m rich'

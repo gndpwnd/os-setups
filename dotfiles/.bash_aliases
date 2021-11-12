@@ -8,7 +8,8 @@ alias firefox='/usr/lib/firefox/firefox'
 alias up='python3 -m http.server 8000'
 alias psa='ps aux | grep'
 alias sc='SSH_AUTH_SOCK='
-alias esf="ssh-agent -s; ssh-add"
+alias esf='ssh-agent -s; ssh-add'
+alias root='sudo su'
 
 ##########   VPN   ##########
 

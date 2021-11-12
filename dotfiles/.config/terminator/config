@@ -4,7 +4,7 @@
   suppress_multiple_term_dialog = True
   putty_paste_style_source_clipboard = True
 [keybindings]
-  new_tab = <Super>u
+  new_tab = <Alt>n
   cycle_next = <Super>b
   cycle_prev = <Super>x
   go_next = <Shift><Alt>n
@@ -12,7 +12,7 @@
   split_horiz = <Alt>o
   split_vert = <Alt>i
   close_term = <Alt>e
-  next_tab = <Alt>n
+  next_tab = <Alt>u
   prev_tab = <Primary><Shift>Tab
   reset = <Primary><Shift>r
   broadcast_off = <Primary><Alt>o

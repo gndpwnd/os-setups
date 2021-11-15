@@ -12,7 +12,7 @@
   split_horiz = <Alt>o
   split_vert = <Alt>i
   close_term = <Primary>e
-  next_tab = <Alt>u
+  next_tab = <Primary>Tab
   prev_tab = <Primary><Shift>Tab
   reset = <Primary><Shift>r
   broadcast_off = <Primary><Alt>o

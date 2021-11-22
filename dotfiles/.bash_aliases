@@ -1,6 +1,7 @@
 ##########   SYS   ##########
 
-alias la='ls -la'
+alias l='ls -la'
+alias lr='ls -la -R'
 alias rf='rm -rf'
 alias py='python3'
 alias d='rm -rf'
@@ -25,9 +26,6 @@ alias r='FILE=$1; rustc $FILE && bash $FILE | rev | cut -c4- | rev'
 #getting into switching from:
 #using 'gp' to prep, then use 'yeet {branchname}' to push
 
-#alias gg='git add -A && git commit -m "update" && git push'
-
-
 alias gc='git clone'
 
 # switch branch
@@ -51,7 +49,7 @@ alias dc="docker container ls"
 alias dcp="docker container prune"
 alias dv="docker volume ls"
 alias dvp="docker volume prune"
-alias dp='curl parrot.live'
+alias dp='docker pull'
 
 ##########   STARTUP APPS   ##########
 
@@ -70,6 +68,8 @@ alias mc='macchanger'
 
 ##########   DEV00PS   ##########
 
+alias cultparrot='curl parrot.live'
 ### PY ###
 # pip install rich
 alias rich='python -m rich'
+

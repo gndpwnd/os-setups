@@ -250,6 +250,10 @@ else
   python3 get-platformio.py
   rm -rf get-platformio.py
   
+  sudo add-apt-repository ppa:maarten-baert/simplescreenrecorder
+  sudo apt-get update
+  sudo apt-get install simplescreenrecorder
+  
   sudo python3 -m pip install --upgrade 
   curl https://bootstrap.pypa.io/pip/2.7/get-pip.py --output get-pip.py
   sudo python2 get-pip.py

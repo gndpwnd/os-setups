@@ -12,6 +12,7 @@ sudo apt install -fy vim snap gparted build-essential libelf-dev linux-headers-`
 sudo snap install ao spotify obs-studio vlc discord cherrytree cura-slicer rpi-imager
 sudo snap install blender --channel=2.79/stable --classic
 sudo snap install sublime-text --classic
+sudo snap install code --classic
   
 #networking
 sudo echo "nameserver 1.1.1.1" > /etc/resolv.conf

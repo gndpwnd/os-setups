@@ -1,18 +1,13 @@
 #!/bin/bash
-sudo apt install -fy snap build-essential libelf-dev linux-headers-`uname -r` bc dkms apt-transport-https terminator cherrytree thunderbird libreoffice libgconf-2-4 libappindicator1 libc++1 git docker iperf3 
-sudo snap install ao spotify obs-studio vlc discord
+curl https://sh.rustup.rs -sSf | sh
+wget https://raw.githubusercontent.com/platformio/platformio-core-installer/master/get-platformio.py -O get-platformio.py
+python3 get-platformio.py
+sudo apt install -fy snap build-essential libelf-dev linux-headers-`uname -r` bc dkms apt-transport-https terminator thunderbird libreoffice libgconf-2-4 libappindicator1 libc++1 git docker iperf3 speedtest-cli python3 python3-pip rust go 
+sudo snap install ao spotify obs-studio vlc discord cherrytree
 sudo snap install blender --channel=2.79/stable --classic
 sudo snap install cura-slicer
-cp -r pwnnotes/ /opt
-chmod 777 /opt/pwnnotes/setup.sh
-bash /opt/pwnnotes/setup.sh
-echo 'moving to /opt'
-#init
-cd /opt
-mkdir server
-mkdir /ctf
-mkdir /thm
-mkdir /htb
+
+mkdir /opt/server
   
 #networking
 echo "nameserver 1.1.1.1" > /etc/resolv.conf
@@ -22,6 +17,7 @@ echo "nameserver 1.0.0.1" >> /etc/resolv.conf
 #wireless drivers
 #apt install -fy build-essential libelf-dev linux-headers-`uname -r` bc dkms
 #apt install -fy realtek-rtl88xxau-dkms
+cd /opt
 git clone https://github.com/aircrack-ng/rtl8812au.git
 cd rtl8812au/
 make && make install

@@ -6,7 +6,7 @@ curl https://sh.rustup.rs -sSf | sh
 wget https://raw.githubusercontent.com/platformio/platformio-core-installer/master/get-platformio.py -O get-platformio.py
 python3 get-platformio.py
 sudo apt update && sudo apt upgrade
-sudo apt install -fy snap build-essential libelf-dev linux-headers-`uname -r` bc dkms apt-transport-https xclip terminator thunderbird libreoffice libgconf-2-4 libappindicator1 libc++1 git docker iperf3 speedtest-cli python3 python3-pip rust go 
+sudo apt install -fy snap gparted build-essential libelf-dev linux-headers-`uname -r` bc dkms apt-transport-https xclip terminator thunderbird libreoffice libgconf-2-4 libappindicator1 libc++1 git docker iperf3 speedtest-cli python3 python3-pip rust go 
 sudo snap install ao spotify obs-studio vlc discord cherrytree cura-slicer
 sudo snap install blender --channel=2.79/stable --classic
 sudo snap install sublime-text --classic

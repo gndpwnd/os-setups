@@ -9,10 +9,15 @@ sudo apt update && sudo apt upgrade
 sudo apt install -fy vim snap gparted build-essential libelf-dev linux-headers-`uname -r` bc dkms \ 
                      apt-transport-https xclip terminator thunderbird libreoffice libgconf-2-4 libappindicator1 libc++1 \
                      git docker.io iperf3 speedtest-cli golang 
+                     
 sudo snap install ao spotify obs-studio vlc discord cherrytree cura-slicer rpi-imager
 sudo snap install blender --channel=2.79/stable --classic
 sudo snap install sublime-text --classic
 sudo snap install code --classic
+ 
+sudo add-apt-repository ppa:maarten-baert/simplescreenrecorder
+sudo apt-get update
+sudo apt-get install simplescreenrecorder
   
 #networking
 sudo echo "nameserver 1.1.1.1" > /etc/resolv.conf

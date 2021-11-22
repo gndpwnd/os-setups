@@ -1,15 +1,8 @@
 #!/bin/bash
-
-                    #Configs
-read -p "user for this box: " uboi 
-
-mv configs/terminator /home/$uboi/.config/terminator/config
-chown $uboi /home/$uboi/.config/terminator/config
-
-
 sudo apt install -fy snap build-essential libelf-dev linux-headers-`uname -r` bc dkms apt-transport-https terminator cherrytree thunderbird libreoffice libgconf-2-4 libappindicator1 libc++1 git docker iperf3 
 sudo snap install ao spotify obs-studio vlc discord
-sudo snap install blender --classic
+sudo snap install blender --channel=2.79/stable --classic
+sudo snap install cura-slicer
 cp -r pwnnotes/ /opt
 chmod 777 /opt/pwnnotes/setup.sh
 bash /opt/pwnnotes/setup.sh
@@ -43,10 +36,7 @@ echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sou
 sudo apt-get update
 sudo apt-get install sublime-text
 
-#Thunderbird & Libre
-#apt install -fy terminator thunderbird libreoffice
-
-apt --fix-broken install
+sudo apt --fix-broken install
 
 #Download
 x-www-browser https://www.realvnc.com/en/connect/download/viewer/

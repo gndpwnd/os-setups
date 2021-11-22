@@ -44,4 +44,12 @@ PS1="${YELLOW}¯\_(°~°)_/¯${PURPLE}@${RED}\h ${CYAN}\w\n${GREEN}$(get_git) \[
 
 alias ls='ls --color=auto'
 source ~/.bash_aliases
+. "$HOME/.cargo/env"
+
+if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+fi
+
 export PATH=$PATH:~/.platformio/penv/bin

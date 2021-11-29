@@ -11,6 +11,9 @@ inp = str(args['infile'])
 outp = str(args['outfile'])
 
 with open(inp) as oldfile, open(outp, 'w') as newfile:
-    for line in oldfile:
-        if not line.startswith("#"):
-            newfile.write(line)
+   for line in oldfile:
+      if not line.strip():
+         if not line.startswith("#"):
+            delimiter = '#'
+            stripline = line.split(delimiter, 1)[0]
+            newfile.write(stripline)

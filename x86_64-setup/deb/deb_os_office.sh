@@ -13,7 +13,7 @@ rm -rf get-platformio.py
 sudo apt update && sudo apt upgrade -y
 sudo apt install -fy vim snap gparted build-essential libelf-dev linux-headers-`uname -r` bc dkms \ 
                      apt-transport-https xclip terminator thunderbird libreoffice \
-                     libgconf-2-4 libappindicator1 libc++1 \
+                     libgconf-2-4 libappindicator1 libc++1 adb \
                      git docker.io iperf3 speedtest-cli golang \
                      
                      

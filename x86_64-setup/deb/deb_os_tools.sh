@@ -260,7 +260,16 @@ else
   sudo apt update --fix-missing
   sudo apt --fix-broken install 
   
-  sudo apt install -fy cherrytree wireshark python3 python3-pip sqlitebrowser golang terminator openvpn gnome-tweaks audacity exiftool nasm binwalk default-jdk radare2 gdb gqrx-sdr clusterssh audacity bloodhound tor torbrowser-launcher nmap masscan exploitdb armitage set dsniff nikto osrframework recon-ng netdiscover legion voiphopper zaproxy enum4linux dmitry dnsrecon dnstracer theharvester thc-ipv6 reaver aircrack-ng rtlsdr-scanner gqrx-sdr wifite pixiewps burpsuite dirb dirbuster gobuster wpscan wordlists sqlmap sqlninja uniscan websploit ffuf siparmyknife powersploit backdoor-factory veil-evasion bettercap beef-xss rtpflood crunch hash-identifier john johnny rainbowcrack hashcat arduino powershell-empire starkiller
+  sudo apt install -fy cherrytree wireshark python3 python3-pip sqlitebrowser golang terminator openvpn gnome-tweaks \
+                       audacity exiftool nasm binwalk default-jdk radare2 gdb gqrx-sdr clusterssh audacity bloodhound \
+                       tor torbrowser-launcher nmap masscan exploitdb armitage set dsniff nikto osrframework recon-ng \
+                       netdiscover legion voiphopper zaproxy enum4linux dmitry dnsrecon dnstracer theharvester thc-ipv6 \
+                       reaver aircrack-ng rtlsdr-scanner gqrx-sdr wifite pixiewps burpsuite \
+                       dirb dirbuster gobuster wpscan wordlists sqlmap sqlninja uniscan websploit ffuf siparmyknife \
+                       powersploit backdoor-factory veil-evasion bettercap beef-xss rtpflood \
+                       crunch hash-identifier john johnny rainbowcrack hashcat arduino powershell-empire starkiller \
+                       chromium-browser firefox adb git docker.io iperf3 speedtest-cli vlc 
+                       
   sudo apt update --fix-missing
   sudo apt --fix-broken install
   
@@ -272,7 +281,6 @@ else
   
   sudo snap install code --classic
   snap install sublime-text --classic
-  snap install vlc discord
   
   #Responder
   git clone https://github.com/SpiderLabs/Responder.git

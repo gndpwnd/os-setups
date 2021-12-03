@@ -1,23 +1,51 @@
 #!/bin/bash
 
 #get info
-read -p "Username 4 this box: " uboi
 echo "default no..."
 read -p 'Need repo? y/n>  ' repo
 echo "default no..."
 read -p 'Need to prep file sys? y/n> ' fisys
-echo 'keep in mind the default for this answer is yes...'
-read -p 'Full Install? y/n> ' full
+echo "default yes..."
+read -p "Is this a VM?" vmopt
 
+set_screen_res () {
+  read -p "Is the machine hosting this VM running windows or linux? (w/l)> " hostos
+  if [ $hostos == "w" ]
+    res1="1920"
+    res2="1080"
+  elif [ $hostos == "l" ]
+    res1="1920"
+    res2="1080"   
+  else
+    echo "Not a valid host_os option..."
+    get_screen_res  
+  fi
+  touch /opt/screenres.sh
+  echo 'xrandr --newmode "${res1}x${res2}"  173.00 $res1 2048 2248 2576 $res2 1083 1088 1120 -hsync +vsync' > /opt/screenres.sh
+  echo 'xrandr --addmode Virtual1 ${res1}x${res2}' >> /opt/screenres.sh
+  echo 'xrandr --output Virtual1 --mode ${res1}x${res2}' >> /opt/screenres.sh
+  chmod +x /opt/screenres.sh
+  bash /opt/screenres.sh
+}
+
+
+get_screen_res () {
+  if [ $vmopt == "y" ]
+  then
+    set_screen_res
+  else
+    echo "Not a VM..."
+  fi
+}
+get_screen_res
 
 if [ $fisys == "y" ]
 then
+  sudo chmod -R 777 /opt
   cp -r pwnnotes/ /opt
-  chmod 777 /opt/pwnnotes/setup.sh
+  chmod -R 777 /opt/pwnnotes
   bash /opt/pwnnotes/setup.sh
   echo 'moving to /opt'
-  #init
-  sudo chmod 777 /opt
   mkdir /opt/server
   sudo mkdir /ctf
   sudo mkdir /thm
@@ -30,14 +58,6 @@ then
   #networking
   sudo echo "nameserver 1.1.1.1" > /etc/resolv.conf
   sudo echo "nameserver 1.0.0.1" >> /etc/resolv.conf
-
-  #setting resolution of display
-  touch /opt/screenres.sh
-  echo 'xrandr --newmode "1920x1080"  173.00  1920 2048 2248 2576 1080 1083 1088 1120 -hsync +vsync' > /opt/screenres.sh
-  echo 'xrandr --addmode Virtual1 1920x1080' >> /opt/screenres.sh
-  echo 'xrandr --output Virtual1 --mode 1920x1080' >> /opt/screenres.sh
-  chmod +x /opt/screenres.sh
-  bash /opt/screenres.sh
 else
  echo "No changes to your file sys"
 fi
@@ -60,6 +80,11 @@ echo "OK, Installing Tools"
 ####################################################################################################
 #                                                APT
 ####################################################################################################
+#libappindicator
+wget http://ftp.de.debian.org/debian/pool/main/liba/libappindicator/libappindicator3-1_0.4.92-7_amd64.deb
+sudo apt install ./libappindicator3-1_0.4.92-7_amd64.deb
+
+#simple screen recorder
 sudo add-apt-repository ppa:maarten-baert/simplescreenrecorder
 sudo apt-get update
 sudo apt-get install simplescreenrecorder
@@ -216,6 +241,10 @@ rm -rf impacket-0.9.23.tar
 ####################################################################################################
 #evil-winrm
 gem install evil-winrm
+
+#obsidian
+wget https://github.com/obsidianmd/obsidian-releases/releases/download/v0.12.15/obsidian_0.12.15_amd64.deb
+sudo apt install ./obsidian_0.12.15_amd64.deb
 
 #wireless drivers
 sudo apt install -y build-essential libelf-dev linux-headers-`uname -r`

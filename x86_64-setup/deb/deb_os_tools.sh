@@ -64,6 +64,11 @@ sudo add-apt-repository ppa:maarten-baert/simplescreenrecorder
 sudo apt-get update
 sudo apt-get install simplescreenrecorder
 
+sudo apt install -y firefox
+sudo apt install -y chromium-browser
+sudo apt install -y firefox-esr
+sudo apt install -y chromium
+
 sudo apt update --fix-missing
 sudo apt --fix-broken install
 
@@ -76,7 +81,7 @@ sudo apt install -fy sqlitebrowser golang nasm default-jdk terminator git docker
                        dirb dirbuster gobuster wpscan wordlists sqlmap sqlninja uniscan websploit ffuf siparmyknife \
                        powersploit backdoor-factory veil-evasion bettercap beef-xss rtpflood \
                        crunch hash-identifier john johnny rainbowcrack hashcat arduino powershell-empire starkiller \
-                       chromium-browser firefox adb git docker.io iperf3 speedtest-cli vlc 
+                       adb git docker.io iperf3 speedtest-cli vlc 
 
 sudo usermod -aG docker $USER
 

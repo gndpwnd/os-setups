@@ -53,8 +53,8 @@ alias dp='docker pull'
 
 ##########   STARTUP APPS   ##########
 
-alias obsidian='cd /opt/ && ./Obsidian-0.12.19.AppImage &'
-alias vncv='cd /opt/ && ./VNC-Viewer-6.21.920-Linux-x64 &'
+#alias obsidian='cd /opt/ && ./Obsidian-0.12.19.AppImage &'
+#alias vncv='cd /opt/ && ./VNC-Viewer-6.21.920-Linux-x64 &'
 
 ##########   MISC TOOLS   ##########
 

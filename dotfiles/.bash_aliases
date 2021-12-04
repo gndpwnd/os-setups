@@ -55,7 +55,7 @@ alias dp='docker pull'
 
 #alias obsidian='cd /opt/ && ./Obsidian-0.12.19.AppImage &'
 #alias vncv='cd /opt/ && ./VNC-Viewer-6.21.920-Linux-x64 &'
-#alias firefox=' /usr/lib/firefox &'
+#alias firefox=' /usr/lib/firefox/firefox &'
 
 ##########   MISC TOOLS   ##########
 

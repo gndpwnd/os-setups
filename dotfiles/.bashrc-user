@@ -79,6 +79,7 @@ alias ls='ls --color=auto'
 source ~/.bash_aliases
 PATH="$HOME/.cargo/bin:$PATH"
 PATH="$HOME/.local/bin:$PATH"
+PATH="/usr/local/go/bin:$PATH"
 
 
 if [ -f /usr/share/bash-completion/bash_completion ]; then

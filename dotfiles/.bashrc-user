@@ -77,7 +77,9 @@ PS1="${BLUE}\u${PURPLE}@${RED}\h ${CYAN}\w\n${GREEN}$(get_git) \[${WHITE}$→ ${
 ##########   ENV   ##########
 alias ls='ls --color=auto'
 source ~/.bash_aliases
-. "$HOME/.cargo/env"
+PATH="$HOME/.cargo/bin:$PATH"
+PATH="$HOME/.local/bin:$PATH"
+
 
 if [ -f /usr/share/bash-completion/bash_completion ]; then
     . /usr/share/bash-completion/bash_completion

@@ -128,8 +128,9 @@ cd /opt/
 #pypi
 
 pip3 isntall numpy scipy matplotlib pandas nose tk \
-             argparse imutils tqdm \
-             jupyter jupyterlab  opencv-python
+             argparse imutils tqdm rich \
+             jupyter jupyterlab \
+             opencv-python
 
 
 #jupyter extensions

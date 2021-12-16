@@ -68,7 +68,8 @@ alias room='bash /opt/pwnnotes/pwnnotes_start.sh'
 alias mc='macchanger'
 
 ##########   DEV00PS   ##########
-
+alias jn='jupyter notebook &'
+alias jl='jupyter lab &'
 alias cultparrot='curl parrot.live'
 ### PY ###
 # pip install rich

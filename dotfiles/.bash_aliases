@@ -38,7 +38,7 @@ alias gbd='git branch -d'
 alias gm='git merge'
 
 alias gs='git status'
-alias gp='git add -A && git commit -m "update"'
+alias gp='git add -A && git commit -m'
 alias yeet='git push --set-upstream origin'
 alias yoink='git pull'
 

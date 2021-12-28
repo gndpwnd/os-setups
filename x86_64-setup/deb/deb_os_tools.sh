@@ -6,38 +6,31 @@ read -p 'Need repo? y/n>  ' repo
 echo "default no..."
 read -p 'Need to prep file sys? y/n> ' fisys
 echo "default yes..."
-read -p "Is this a VM?" vmopt
+read -p "Is this a VM y/n>" vmopt
 
-set_screen_res () {
-  read -p "Is the machine hosting this VM running windows or linux? (w/l)> " hostos
-  if [ $hostos == "w" ]
-    res1="1920"
-    res2="1080"
-  elif [ $hostos == "l" ]
-    res1="1920"
-    res2="1080"   
-  else
-    echo "Not a valid host_os option..."
-    get_screen_res  
-  fi
-  touch /opt/screenres.sh
-  echo 'xrandr --newmode "${res1}x${res2}"  173.00 $res1 2048 2248 2576 $res2 1083 1088 1120 -hsync +vsync' > /opt/screenres.sh
-  echo 'xrandr --addmode Virtual1 ${res1}x${res2}' >> /opt/screenres.sh
-  echo 'xrandr --output Virtual1 --mode ${res1}x${res2}' >> /opt/screenres.sh
-  chmod +x /opt/screenres.sh
-  bash /opt/screenres.sh
-}
-
-
-get_screen_res () {
-  if [ $vmopt == "y" ]
-  then
-    set_screen_res
-  else
-    echo "Not a VM..."
-  fi
-}
-get_screen_res
+if [ $vmopt == "y" ]
+then
+	read -p "Is the machine hosting this VM running windows or linux? (w/l)> " hostos
+	if [ $hostos == "w" ]
+    	res1="1920"
+    	res2="1080"
+    elif [ $hostos == "l" ]
+    	res1="1920"
+    	res2="1080"   
+    else
+    	echo "Not a valid host_os option..."
+    	get_screen_res  
+    fi
+    
+    touch /opt/screenres.sh
+    echo 'xrandr --newmode "${res1}x${res2}"  173.00 $res1 2048 2248 2576 $res2 1083 1088 1120 -hsync +vsync' > /opt/screenres.sh
+    echo 'xrandr --addmode Virtual1 ${res1}x${res2}' >> /opt/screenres.sh
+    echo 'xrandr --output Virtual1 --mode ${res1}x${res2}' >> /opt/screenres.sh
+    chmod +x /opt/screenres.sh
+    bash /opt/screenres.sh
+else
+	echo "Not a VM..."
+fi
 
 if [ $fisys == "y" ]
 then

@@ -81,10 +81,7 @@ sudo add-apt-repository ppa:maarten-baert/simplescreenrecorder
 sudo apt-get update
 sudo apt-get install simplescreenrecorder
 
-sudo apt install -y firefox
-sudo apt install -y chromium-browser
-sudo apt install -y firefox-esr
-sudo apt install -y chromium
+wget https://www.mozilla.org/en-US/firefox/download/thanks/
 
 sudo apt update --fix-missing
 sudo apt --fix-broken install

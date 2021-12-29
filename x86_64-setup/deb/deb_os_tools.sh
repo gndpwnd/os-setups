@@ -1,4 +1,8 @@
 #!/bin/bash
+if [ "$EUID" -ne 0 ]
+  then echo "Please run as root"
+  exit
+fi
 
 #get info
 echo "default no..."
@@ -63,6 +67,8 @@ then
   echo 'deb http://http.kali.org/kali kali-rolling main contrib non-free' >> /etc/apt/sources.list
   apt-get update
   apt install snapd
+  systemctl start snapd
+  systemctl enable snapd
 else 
   echo "No changes to your repositories"
 fi

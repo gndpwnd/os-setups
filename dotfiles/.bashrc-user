@@ -89,3 +89,4 @@ if [ -f /usr/share/bash-completion/bash_completion ]; then
 fi
 
 export PATH=$PATH:~/.platformio/penv/bin
+export gitpriv="${USER}/.ssh/gitpriv"

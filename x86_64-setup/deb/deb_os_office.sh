@@ -6,6 +6,20 @@ if (( $EUID != 0 )); then
   echo "This must be run as root. Type in 'sudo bash $0' to run it as root."
   exit 1
 fi
+
+#make a new priveliged ssh key
+clear
+echo "Generating a new ssh key..."
+KEY_NAME="gitpriv"
+read -p "Enter email for new ssh key: " EMAIL
+ssh-keygen -t ed25519 -C $EMAIL << EOF 
+${HOME}/.ssh/${KEY_NAME}
+
+
+EOF
+ssh-add ${HOME}/.ssh/${KEY_NAME}
+clear
+
 ##################################################
 #             Specify Software Versions
 ##################################################

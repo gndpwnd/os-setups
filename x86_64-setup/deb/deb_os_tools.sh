@@ -1,10 +1,26 @@
 #!/bin/bash
+
+##################################################
+#             	Check Root
+##################################################
 if (( $EUID != 0 )); then
   echo "This must be run as root. Type in 'sudo bash $0' to run it as root."
   exit 1
 fi
 
-#make a new priveliged ssh key
+##################################################
+#             Specify Software Versions
+##################################################
+
+blender_version="2.79"
+libfdk_aac_version="0.1.6-1"
+obsidian_version="0.12.15"
+VNC_Viewer_version="6.21.1109"
+go_version="1.14.2"
+
+##################################################
+#          Make a new ssh key
+##################################################
 clear
 echo "Generating a new ssh key..."
 KEY_NAME="gitpriv"
@@ -17,14 +33,20 @@ EOF
 ssh-add ${HOME}/.ssh/${KEY_NAME}
 clear
 
-#get info
+##################################################
+#          Collect Some Information
+##################################################
 echo "default no..."
 read -p 'Need repo? y/n>  ' repo
 echo "default no..."
 read -p 'Need to prep file sys? y/n> ' fisys
 echo "default yes..."
 read -p "Is this a VM y/n>" vmopt
+clear
 
+##################################################
+#      Generate a Script for Screen Resolution
+##################################################
 if [ $vmopt == "y" ]
 then
 	read -p "Is the machine hosting this VM running windows or linux? (w/l)> " hostos
@@ -48,6 +70,9 @@ else
 	echo "Not a VM..."
 fi
 
+##################################################
+#          Make Some File System Changes
+##################################################
 if [ $fisys == "y" ]
 then
    chmod -R 777 /opt
@@ -71,6 +96,9 @@ else
  echo "No changes to your file sys"
 fi
 
+##################################################
+#          Add The Kali Repo
+##################################################
 if [ $repo == "y" ]
 then
   echo 'adding apt repo'
@@ -85,6 +113,10 @@ then
 else 
   echo "No changes to your repositories"
 fi
+
+##################################################
+#          Install Tools
+##################################################
 
 echo "OK, Installing Tools"
   
@@ -103,14 +135,19 @@ wget http://ftp.de.debian.org/debian/pool/main/liba/libappindicator/libappindica
                        audacity exiftool nasm binwalk default-jdk radare2 gdb gqrx-sdr clusterssh audacity bloodhound \
                        tor torbrowser-launcher nmap masscan exploitdb armitage set dsniff nikto osrframework recon-ng \
                        netdiscover legion voiphopper zaproxy enum4linux dmitry dnsrecon dnstracer theharvester thc-ipv6 \
-                       reaver aircrack-ng rtlsdr-scanner gqrx-sdr wifite pixiewps burpsuite \
+                       reaver aircrack-ng rtlsdr-scanner gqrx-sdr wifite pixiewps burpsuite dex2jar android-sdk \
                        dirb dirbuster gobuster wpscan wordlists sqlmap sqlninja uniscan websploit ffuf siparmyknife \
                        powersploit backdoor-factory veil-evasion bettercap beef-xss rtpflood \
                        crunch hash-identifier john johnny rainbowcrack hashcat arduino powershell-empire starkiller \
                        adb git docker.io iperf3 speedtest-cli vlc 
 
- usermod -aG docker $USER
-
+# Misc Docker setup
+systemctl start docker
+systemctl enable docker
+groupadd docker
+usermod -aG docker $USER
+systemctl restart docker
+ 
  apt update --fix-missing
  apt --fix-broken install
 ####################################################################################################
@@ -185,6 +222,15 @@ git clone https://github.com/internetwache/GitTools
 
 #RsaCtfTool
 git clone https://github.com/Ganapati/RsaCtfTool.git
+
+#LFIsuite
+git clone https://github.com/D35m0nd142/LFISuite.git
+
+#PWNcat
+git clone https://github.com/calebstewart/pwncat.git
+
+#APKleaks
+git clone https://github.com/dwisiswant0/apkleaks.git
 
 ####################################################################################################
 #                                          CURL / WGET

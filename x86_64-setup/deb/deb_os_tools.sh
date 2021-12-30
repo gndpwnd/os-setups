@@ -13,6 +13,7 @@ fi
 ##################################################
 
 libappindicator_version="3-1_0.4.92-7"
+libindicator_version="3-7_0.5.0-2"
 hopper_version="4-4.7.1"
 rustscan_verion="2.0.1/"
 ghidra_down_version="9.2.2_PUBLIC_20201229"
@@ -131,9 +132,15 @@ echo "OK, Installing Tools"
 ####################################################################################################
 #                                                APT
 ####################################################################################################
+#libindicator
+wget http://ftp.de.debian.org/debian/pool/main/libi/libindicator/libindicator${libindicator_version}_amd64.deb
+apt install ./libindicator${libindicator_version}_amd64.deb
+rm -rf libindicator${libindicator_version}_amd64.deb
+
 #libappindicator
 wget http://ftp.de.debian.org/debian/pool/main/liba/libappindicator/libappindicator${libappindicator_version}_amd64.deb
- apt install ./libappindicator${libappindicator_version}_amd64.deb
+apt install ./libappindicator${libappindicator_version}_amd64.deb
+rm -rf libappindicator${libappindicator_version}_amd64.deb
 
  apt update --fix-missing
  apt --fix-broken install

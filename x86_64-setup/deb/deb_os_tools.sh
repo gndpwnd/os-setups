@@ -50,23 +50,23 @@ fi
 
 if [ $fisys == "y" ]
 then
-  sudo chmod -R 777 /opt
+   chmod -R 777 /opt
   cp -r pwnnotes/ /opt
   chmod -R 777 /opt/pwnnotes
   bash /opt/pwnnotes/setup.sh
   echo 'moving to /opt'
   mkdir /opt/server
-  sudo mkdir /ctf
-  sudo mkdir /thm
-  sudo mkdir /htb
-  sudo chmod 777 /opt/server
-  sudo chmod 777 /ctf
-  sudo chmod 777 /htb
-  sudo chmod 777 /thm
+   mkdir /ctf
+   mkdir /thm
+   mkdir /htb
+   chmod 777 /opt/server
+   chmod 777 /ctf
+   chmod 777 /htb
+   chmod 777 /thm
   
   #networking
-  sudo echo "nameserver 1.1.1.1" > /etc/resolv.conf
-  sudo echo "nameserver 1.0.0.1" >> /etc/resolv.conf
+   echo "nameserver 1.1.1.1" > /etc/resolv.conf
+   echo "nameserver 1.0.0.1" >> /etc/resolv.conf
 else
  echo "No changes to your file sys"
 fi
@@ -93,19 +93,12 @@ echo "OK, Installing Tools"
 ####################################################################################################
 #libappindicator
 wget http://ftp.de.debian.org/debian/pool/main/liba/libappindicator/libappindicator3-1_0.4.92-7_amd64.deb
-sudo apt install ./libappindicator3-1_0.4.92-7_amd64.deb
+ apt install ./libappindicator3-1_0.4.92-7_amd64.deb
 
-#simple screen recorder
-sudo add-apt-repository ppa:maarten-baert/simplescreenrecorder
-sudo apt-get update
-sudo apt-get install simplescreenrecorder
+ apt update --fix-missing
+ apt --fix-broken install
 
-wget https://www.mozilla.org/en-US/firefox/download/thanks/
-
-sudo apt update --fix-missing
-sudo apt --fix-broken install
-
-sudo apt install -fy sqlitebrowser golang nasm default-jdk terminator git docker.io \
+ apt install -fy sqlitebrowser golang nasm default-jdk terminator git docker.io \
                        cherrytree wireshark python3 python3-pip sqlitebrowser golang terminator openvpn gnome-tweaks \
                        audacity exiftool nasm binwalk default-jdk radare2 gdb gqrx-sdr clusterssh audacity bloodhound \
                        tor torbrowser-launcher nmap masscan exploitdb armitage set dsniff nikto osrframework recon-ng \
@@ -116,26 +109,27 @@ sudo apt install -fy sqlitebrowser golang nasm default-jdk terminator git docker
                        crunch hash-identifier john johnny rainbowcrack hashcat arduino powershell-empire starkiller \
                        adb git docker.io iperf3 speedtest-cli vlc 
 
-sudo usermod -aG docker $USER
+ usermod -aG docker $USER
 
-sudo apt update --fix-missing
-sudo apt --fix-broken install
+ apt update --fix-missing
+ apt --fix-broken install
 ####################################################################################################
 #                                              PIP
 ####################################################################################################
 curl https://bootstrap.pypa.io/pip/2.7/get-pip.py --output get-pip.py
-sudo python2 get-pip.py
-sudo apt update --fix-missing
-sudo apt --fix-broken install
+ python2 get-pip.py
+ apt update --fix-missing
+ apt --fix-broken install
 
-sudo python3 -m pip install --upgrade
+python3 -m pip install --upgrade
 
 pip3 install bloodhound pyinstaller pynput==1.6.8
 ####################################################################################################
 #                                              SNAP
 ####################################################################################################
-sudo snap install code --classic
+snap install code --classic
 snap install sublime-text --classic
+snap install simplescreenrecorder
 ####################################################################################################
 #                                              GIT
 ####################################################################################################
@@ -252,12 +246,12 @@ gem install evil-winrm
 
 #obsidian
 wget https://github.com/obsidianmd/obsidian-releases/releases/download/v0.12.15/obsidian_0.12.15_amd64.deb
-sudo apt install ./obsidian_0.12.15_amd64.deb
+ apt install ./obsidian_0.12.15_amd64.deb
 
 #wireless drivers
-sudo apt install -y build-essential libelf-dev linux-headers-`uname -r`
-sudo apt install -y realtek-rtl88xxau-dkms
+ apt install -y build-essential libelf-dev linux-headers-`uname -r`
+ apt install -y realtek-rtl88xxau-dkms
 git clone https://github.com/aircrack-ng/rtl8812au.git
 cd rtl8812au/
-sudo make && sudo make install
+ make &&  make install
 reboot now

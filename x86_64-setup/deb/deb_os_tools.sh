@@ -226,6 +226,9 @@ git clone https://github.com/Ganapati/RsaCtfTool.git
 #LFIsuite
 git clone https://github.com/D35m0nd142/LFISuite.git
 
+#fimap
+git clone https://github.com/kurobeats/fimap.git
+
 #PWNcat
 git clone https://github.com/calebstewart/pwncat.git
 

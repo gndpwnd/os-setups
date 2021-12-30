@@ -12,7 +12,15 @@ fi
 #             Specify Software Versions
 ##################################################
 
-blender_version="2.79"
+libappindicator_version="3-1_0.4.92-7"
+hopper_version="4-4.7.1"
+rustscan_verion="2.0.1/"
+ghidra_down_version="9.2.2_PUBLIC_20201229"
+ghidra_version="9.2.2_PUBLIC"
+kerbrute_version="1.0.3"
+obsidian_version="0.12.15"
+
+
 libfdk_aac_version="0.1.6-1"
 obsidian_version="0.12.15"
 VNC_Viewer_version="6.21.1109"
@@ -124,8 +132,8 @@ echo "OK, Installing Tools"
 #                                                APT
 ####################################################################################################
 #libappindicator
-wget http://ftp.de.debian.org/debian/pool/main/liba/libappindicator/libappindicator3-1_0.4.92-7_amd64.deb
- apt install ./libappindicator3-1_0.4.92-7_amd64.deb
+wget http://ftp.de.debian.org/debian/pool/main/liba/libappindicator/libappindicator${libappindicator_version}_amd64.deb
+ apt install ./libappindicator${libappindicator_version}_amd64.deb
 
  apt update --fix-missing
  apt --fix-broken install
@@ -244,9 +252,9 @@ curl -sSL https://raw.githubusercontent.com/sundowndev/PhoneInfoga/master/suppor
 mv ./phoneinfoga /usr/bin/phoneinfoga
 
 #hopper
-wget https://d2ap6ypl1xbe4k.cloudfront.net/Hopper-v4-4.7.1-Linux.deb
-dpkg -i Hopper-v4-4.7.1-Linux.deb
-rm -rf Hopper-v4-4.7.1-Linux.deb
+wget https://d2ap6ypl1xbe4k.cloudfront.net/Hopper-v${hopper_version}-Linux.deb
+dpkg -i Hopper-v${hopper_version}-Linux.deb
+rm -rf Hopper-v${hopper_version}-Linux.deb
 
 #pspy
 wget https://github.com/DominicBreuker/pspy/releases/download/v1.2.0/pspy32
@@ -263,20 +271,20 @@ wget https://github.com/ropnop/kerbrute/releases/download/v1.0.3/kerbrute_linux_
 mv kerbrute_linux_amd64 /usr/bin/kerbrute
 
 #rustscan
-wget https://github.com/RustScan/RustScan/releases/download/2.0.1/rustscan_2.0.1_amd64.deb
-dpkg -i rustscan_2.0.1_amd64.deb
-rm -rf rustscan_2.0.1_amd64.deb
+wget https://github.com/RustScan/RustScan/releases/download/${rustscan_verion}/rustscan_${rustscan_verion}_amd64.deb
+dpkg -i rustscan_${rustscan_verion}_amd64.deb
+rm -rf rustscan_${rustscan_verion}_amd64.deb
 
 #bloodhound
 #defaul creds - neo4j:neo4j - need to change
 
 #ghidra
-wget https://ghidra-sre.org/ghidra_9.2.2_PUBLIC_20201229.zip
-unzip ghidra_9.2.2_PUBLIC_20201229.zip
-rm -rf ghidra_9.2.2_PUBLIC_20201229.zip
+wget https://ghidra-sre.org/ghidra_${ghidra_version}.zip
+unzip ghidra_${ghidra_down_version}.zip
+rm -rf ghidra_${ghidra_down_version}.zip
 mkdir ghidra
-mv ghidra_9.2.2_PUBLIC/* ghidra/
-rm -rf ghidra_9.2.2_PUBLIC/
+mv ghidra_${ghidra_version}/* ghidra/
+rm -rf ghidra_${ghidra_version}/
 
 #nmap standalone
 wget https://github.com/andrew-d/static-binaries/raw/master/binaries/linux/x86_64/nmap
@@ -295,8 +303,9 @@ rm -rf impacket-0.9.23.tar
 gem install evil-winrm
 
 #obsidian
-wget https://github.com/obsidianmd/obsidian-releases/releases/download/v0.12.15/obsidian_0.12.15_amd64.deb
- apt install ./obsidian_0.12.15_amd64.deb
+wget https://github.com/obsidianmd/obsidian-releases/releases/download/v0.12.15/obsidian_${obsidian_version}_amd64.deb
+ apt install ./obsidian_${obsidian_version}_amd64.deb
+rm -rf obsidian_${obsidian_version}_amd64.deb
 
 #wireless drivers
  apt install -y build-essential libelf-dev linux-headers-`uname -r`

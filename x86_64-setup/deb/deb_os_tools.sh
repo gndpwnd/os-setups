@@ -251,6 +251,9 @@ git clone https://github.com/calebstewart/pwncat.git
 #APKleaks
 git clone https://github.com/dwisiswant0/apkleaks.git
 
+#Revshells.com
+git clone https://github.com/0dayCTF/reverse-shell-generator.git
+
 ####################################################################################################
 #                                          CURL / WGET
 ####################################################################################################

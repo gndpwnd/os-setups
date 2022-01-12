@@ -254,6 +254,9 @@ git clone https://github.com/dwisiswant0/apkleaks.git
 #Revshells.com
 git clone https://github.com/0dayCTF/reverse-shell-generator.git
 
+#Pass the Hash
+git clone https://github.com/byt3bl33d3r/pth-toolkit.git
+
 ####################################################################################################
 #                                          CURL / WGET
 ####################################################################################################

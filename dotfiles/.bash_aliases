@@ -23,21 +23,14 @@ alias htbvpn='sudo openvpn ~/Desktop/htb.ovpn'
 alias r='FILE=$1; rustc $FILE && bash $FILE | rev | cut -c4- | rev'
 
 ##########   GIT   ##########
-#getting into switching from:
-#using 'gp' to prep, then use 'yeet {branchname}' to push
 
 alias gc='git clone'
-
-# switch branch
-alias gb='git checkout'
-# make a new branch
-alias gbn='git checkout -b'
-# delete a branch
-alias gbd='git branch -d'
-# merge a branch
-alias gm='git merge'
-
+alias gd='git diff'
 alias gs='git status'
+alias gb='git checkout'
+alias gbn='git checkout -b'
+alias gbd='git branch -d'
+alias gm='git merge'
 alias gp='git add -A && git commit -m'
 alias yeet='git push --set-upstream origin'
 alias yoink='git pull'

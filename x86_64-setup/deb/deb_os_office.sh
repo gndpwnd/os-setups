@@ -43,7 +43,7 @@ echo "nameserver 1.0.0.1" >> /etc/resolv.conf
 
 # Rust
 
-curl https://sh.rustup.rs -sSf | sh
+wget https://sh.rustup.rs -O rustup.sh && bash rustup.sh -y && rm -rf rustup.sh
 PATH="$HOME/.cargo/bin:$PATH"
 
 # Nodejs

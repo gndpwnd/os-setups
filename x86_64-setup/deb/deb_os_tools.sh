@@ -50,35 +50,7 @@ read -p 'Need repo? y/n>  ' repo
 echo "default no..."
 read -p 'Need to prep file sys? y/n> ' fisys
 echo "default yes..."
-read -p "Is this a VM y/n>" vmopt
 clear
-
-##################################################
-#      Generate a Script for Screen Resolution
-##################################################
-if [ $vmopt == "y" ]
-then
-	read -p "Is the machine hosting this VM running windows or linux? (w/l)> " hostos
-	if [ $hostos == "w" ]
-    		res1="1920"
-    		res2="1080"
-    	elif [ $hostos == "l" ]
-    		res1="1920"
-    		res2="1080"   
-    	else
-    		echo "Not a valid host_os option..."
-		exit
-    	fi
-	touch /opt/screenres.sh
-	echo 'xrandr --newmode "${res1}x${res2}"  173.00 $res1 2048 2248 2576 $res2 1083 1088 1120 -hsync +vsync' > /opt/screenres.sh
-	echo 'xrandr --addmode Virtual1 ${res1}x${res2}' >> /opt/screenres.sh
-	echo 'xrandr --output Virtual1 --mode ${res1}x${res2}' >> /opt/screenres.sh
-	chmod +x /opt/screenres.sh
-	bash /opt/screenres.sh
-else
-	echo "Not a VM..."
-fi
-
 ##################################################
 #          Make Some File System Changes
 ##################################################
@@ -116,9 +88,6 @@ then
   wget -q -O - archive.kali.org/archive-key.asc | apt-key add
   echo 'deb http://http.kali.org/kali kali-rolling main contrib non-free' >> /etc/apt/sources.list
   apt-get update
-  apt install snapd
-  systemctl start snapd
-  systemctl enable snapd
 else 
   echo "No changes to your repositories"
 fi
@@ -164,98 +133,68 @@ groupadd docker
 usermod -aG docker $USER
 systemctl restart docker
  
- apt update --fix-missing
- apt --fix-broken install
+apt update --fix-missing
+apt --fix-broken install
 ####################################################################################################
 #                                              PIP
 ####################################################################################################
-curl https://bootstrap.pypa.io/pip/2.7/get-pip.py --output get-pip.py
- python2 get-pip.py
- apt update --fix-missing
- apt --fix-broken install
-
 python3 -m pip install --upgrade
 
 pip3 install bloodhound pyinstaller pynput==1.6.8
 ####################################################################################################
 #                                              SNAP
 ####################################################################################################
+apt install -y snapd
+systemctl start snapd
+systemctl enable snapd
 snap install code --classic
 snap install sublime-text --classic
 snap install simplescreenrecorder
 ####################################################################################################
-#                                              GIT
+#						GIT Clone
 ####################################################################################################
-#Responder
-git clone https://github.com/SpiderLabs/Responder.git
+gits = (
+lgandx/Responder
+iphelix/dnschef
+trustedsec/unicorn
+jopohl/urh
+carlospolop/privilege-escalation-awesome-scripts-suite
+EmpireProject/Empire
+icsharpcode/ILSpy
+JohnHammond/poor-mans-pentest
+maurosoria/dirsearch
+s0md3v/Photon
+pentestmonkey/php-reverse-shell
+bitbrute/evillimiter
+internetwache/GitTools
+Ganapati/RsaCtfTool
+D35m0nd142/LFISuite
+kurobeats/fimap
+calebstewart/pwncat
+dwisiswant0/apkleaks
+0dayCTF/reverse-shell-generator
+byt3bl33d3r/pth-toolkit
+hakluke/hakrawler
+danielmiessler/SecLists
+)
 
-#unicorn
-git clone https://github.com/trustedsec/unicorn.git
+for repo in $gits;
+do
+	git clone https://github.com/${repo}.git
+done
 
-#urh
-git clone https://github.com/jopohl/urh.git
-
-#linpeas
-git clone https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite.git
+#linpeas setup
 mkdir peas
 mv privilege-escalation-awesome-scripts-suite/* peas/
 rm -rf privilege-escalation-awesome-scripts-suite/
 cp peas/linPEAS/linpeas.sh /opt/server/
 cp peas/winPEAS/winPEASbat/winPEAS.bat /opt/server/
 
-#PSEmpire
-git clone https://github.com/EmpireProject/Empire.git
-
-#ILSpy decompiler
-git clone https://github.com/icsharpcode/ILSpy.git
-
-#poor mans pentest
-git clone https://github.com/JohnHammond/poor-mans-pentest.git
+#poor mans pentest setup
 mkdir pmp
 mv poor-mans-pentest/* pmp/
 rm -rf poor-mans-pentest
 
-#dirsearch
-git clone https://github.com/maurosoria/dirsearch.git
-
-#photon
-git clone https://github.com/s0md3v/Photon.git
-
-#rphp
-git clone https://github.com/pentestmonkey/php-reverse-shell.git 
-mv php-reverse-shell/php-reverse-shell.php /opt/server/rphp.php
-rm -rf php-reverse-shell
-
-#SecLists
-git clone https://github.com/danielmiessler/SecLists.git
-
-#evil limiter
-git clone https://github.com/bitbrute/evillimiter.git
-
-#GitTools
-git clone https://github.com/internetwache/GitTools
-
-
-#RsaCtfTool
-git clone https://github.com/Ganapati/RsaCtfTool.git
-
-#LFIsuite
-git clone https://github.com/D35m0nd142/LFISuite.git
-
-#fimap
-git clone https://github.com/kurobeats/fimap.git
-
-#PWNcat
-git clone https://github.com/calebstewart/pwncat.git
-
-#APKleaks
-git clone https://github.com/dwisiswant0/apkleaks.git
-
-#Revshells.com
-git clone https://github.com/0dayCTF/reverse-shell-generator.git
-
-#Pass the Hash
-git clone https://github.com/byt3bl33d3r/pth-toolkit.git
 
 ####################################################################################################
 #                                          CURL / WGET
@@ -317,13 +256,13 @@ gem install evil-winrm
 
 #obsidian
 wget https://github.com/obsidianmd/obsidian-releases/releases/download/v0.12.15/obsidian_${obsidian_version}_amd64.deb
- apt install ./obsidian_${obsidian_version}_amd64.deb
+apt install ./obsidian_${obsidian_version}_amd64.deb
 rm -rf obsidian_${obsidian_version}_amd64.deb
 
 #wireless drivers
- apt install -y build-essential libelf-dev linux-headers-`uname -r`
- apt install -y realtek-rtl88xxau-dkms
+apt install -y build-essential libelf-dev linux-headers-`uname -r`
+apt install -y realtek-rtl88xxau-dkms
 git clone https://github.com/aircrack-ng/rtl8812au.git
 cd rtl8812au/
- make &&  make install
+make &&  make install
 reboot now

@@ -122,7 +122,8 @@ rm -rf libappindicator${libappindicator_version}_amd64.deb
                        reaver aircrack-ng rtlsdr-scanner gqrx-sdr wifite pixiewps burpsuite \
                        dirb dirbuster gobuster wpscan wordlists sqlmap sqlninja uniscan websploit ffuf siparmyknife \
                        powersploit backdoor-factory veil-evasion bettercap beef-xss rtpflood \
-                       crunch hash-identifier john johnny rainbowcrack hashcat arduino powershell-empire starkiller \
+                       crunch hash-identifier john johnny rainbowcrack hashcat arduino crowbar hydra \
+		       powershell-empire starkiller \
                        adb bison gawk bc ccache device-tree-compiler dex2jar android-sdk \
 		       git docker.io iperf3 speedtest-cli vlc
 

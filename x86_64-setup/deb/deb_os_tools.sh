@@ -176,6 +176,7 @@ dwisiswant0/apkleaks
 byt3bl33d3r/pth-toolkit
 hakluke/hakrawler
 danielmiessler/SecLists
+SecureAuthCorp/impacket
 )
 
 for repo in $gits;
@@ -241,12 +242,6 @@ rm -rf ghidra_${ghidra_version}/
 #nmap standalone
 wget https://github.com/andrew-d/static-binaries/raw/master/binaries/linux/x86_64/nmap
 mv nmap /opt/server/
-
-#impacket
-wget https://github.com/SecureAuthCorp/impacket/releases/download/impacket_0_9_23/impacket-0.9.23.tar.gz
-gunzip impacket-0.9.23.tar.gz
-tar -xvf impacket-0.9.23.tar
-rm -rf impacket-0.9.23.tar
 
 ####################################################################################################
 #                                                 OTHER

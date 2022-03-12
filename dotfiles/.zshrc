@@ -202,5 +202,6 @@ if [ -f /usr/share/bash-completion/bash_completion ]; then
     . /etc/bash_completion
 fi
 
+export DOTNET_ROOT=/opt/dotnet
 export PATH=$PATH:~/.platformio/penv/bin
 export gitpriv="${USER}/.ssh/gitpriv"

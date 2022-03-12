@@ -90,3 +90,4 @@ fi
 
 export PATH=$PATH:~/.platformio/penv/bin
 export gitpriv="${USER}/.ssh/gitpriv"
+export DOTNET_ROOT=/snap/dotnet-sdk/current

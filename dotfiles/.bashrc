@@ -25,7 +25,7 @@ export WHITE='\e[1;37m'
 ##############################
 
 export TERM=xterm-color
-export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
+unset GREP_OPTIONS
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 
@@ -33,7 +33,6 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 #         ENV
 ##############################
 
-unset GREP_OPTIONS
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="/usr/local/go/bin:$PATH"
@@ -44,6 +43,12 @@ export gitpriv="${USER}/.ssh/gitpriv"
 ##############################
 #         Functions
 ##############################
+
+if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+fi
 
 get_git() {
   if git rev-parse --git-dir > /dev/null 2>&1; then
@@ -70,35 +75,9 @@ get_git() {
 #           Prompt
 ##############################
 
-[[ $- != *i* ]] && return	
+[[ $- != *i* ]] && return 
 
 PS1="${BLUE}\u${PURPLE}@${RED}\h ${CYAN}[\w] $(get_git)\n${WHITE}\$→ ${LIGHT_GRAY}"
-
-##############################
-#         KEYBINDINGS
-##############################
-bindkey -e                                        # emacs key bindings
-bindkey ' ' magic-space                           # do history expansion on space
-bindkey '^[[3;5~' kill-word                       # ctrl + Supr
-bindkey '^[[1;5C' forward-word                    # ctrl + ->
-bindkey '^[[C' forward-word                       # ctrl + ->
-bindkey '^[[1;5D' backward-word                   # ctrl + <-
-bindkey '^[[D' backward-word                      # ctrl + <-
-bindkey '^[[5~' beginning-of-buffer-or-history    # page up
-bindkey '^[[6~' end-of-buffer-or-history          # page down
-bindkey '^[[Z' undo                               # shift + tab undo last action
-
-##############################
-#          HISTORY
-##############################
-HISTFILE=~/.zsh_history
-HISTSIZE=1000
-SAVEHIST=2000
-setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
-setopt hist_ignore_dups       # ignore duplicated commands history list
-setopt hist_ignore_space      # ignore commands that start with space
-setopt hist_verify            # show command with history expansion to user before running it
-
 
 ##############################
 #           ALIASES
@@ -161,4 +140,3 @@ alias psexec='python3 /opt/impacket/examples/psexec.py'
 alias mssqlclient='python3 /opt/impacket/examples/mssqlclient.py'
 
 alias ghidra='bash /opt/ghidra/ghidraRun'
-

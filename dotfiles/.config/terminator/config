@@ -48,15 +48,15 @@
       maximised = True
       fullscreen = False
       size = 1908, 908
-      title = kali@kali: ~/
+      title = kali@kali: /HTB-boxes/Cronos
       last_active_window = True
     [[[child1]]]
       type = Notebook
       parent = child0
       order = 0
       labels = vpn, pwnbox, general enum, web enum, xp
-      last_active_term = 804983d7-397f-4a46-aae1-71f50b09def5, 0e9dc7fd-a85e-46f8-95b2-8793ff90b5da, bb00f4c8-b8ff-43c3-b08c-e9a758728916, 83f3cdcc-5c05-4b86-a427-0dfab50ba828, 48bed675-6b75-4585-b0af-2c60889b48ee
-      active_page = 2
+      last_active_term = 804983d7-397f-4a46-aae1-71f50b09def5, f805ce4f-2acc-48b5-bae3-c2f12d7b1dba, 0d76172c-4a3f-4279-9b05-edeceecfe417, 55340de3-d5a0-4848-b618-347461dcdac3, 48bed675-6b75-4585-b0af-2c60889b48ee
+      active_page = 0
     [[[terminal2]]]
       type = Terminal
       parent = child1
@@ -116,7 +116,7 @@
       parent = child10
       order = 0
       position = 214
-      ratio = 0.5
+      ratio = 0.5023474178403756
     [[[child12]]]
       type = HPaned
       parent = child11
@@ -158,7 +158,7 @@
       parent = child10
       order = 1
       position = 214
-      ratio = 0.5
+      ratio = 0.5023474178403756
     [[[child19]]]
       type = HPaned
       parent = child18
@@ -206,7 +206,7 @@
       parent = child25
       order = 0
       position = 214
-      ratio = 0.5
+      ratio = 0.5023474178403756
     [[[child27]]]
       type = HPaned
       parent = child26
@@ -248,7 +248,7 @@
       parent = child25
       order = 1
       position = 214
-      ratio = 0.5
+      ratio = 0.5023474178403756
     [[[child34]]]
       type = HPaned
       parent = child33

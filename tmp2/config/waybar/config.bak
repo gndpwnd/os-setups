@@ -1,0 +1,34 @@
+{
+    "layer": "top",
+    "modules-left": ["sway/workspaces", "sway/mode"],
+    "modules-right": ["network", "custom/updates", "battery", "clock"],
+    "sway/workspaces": {
+        "format": " {name}: {icon} ",
+        "format-icons": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        }
+    },
+    "network": {
+        "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
+        "format-disconnected": "",
+        "format-linked": "{ifname}: (No IP) ",
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "interval": 5,
+        "tooltip": false
+    },
+    "battery": {
+        "format": "{capacity}% {icon}",
+        "format-icons": ["", "", "", "", ""],
+        "states": {
+            "critical": 15
+        }
+    },
+    "clock": {
+        "format-alt": "{:%a, %d. %b  %H:%M}",
+        "tooltip": false
+    }
+}

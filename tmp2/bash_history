@@ -1,0 +1,404 @@
+exit
+ls
+clear
+pulseaudio -D
+nano ~/.bashrc 
+exit
+ls
+hostnamectl set-hostname error
+sudo su
+mkdir -p ~/.config/sway
+cp /etc/sway/config .config/sway/config
+ls .config/sway/
+nano .config/sway/config 
+sway
+exit
+exit
+pacman -S terminator
+sudo pacman -S terminator
+exit
+exit
+pacman -S yay
+sudo pacman -S yay
+sudo su
+cd /opt/
+gc sudo git clone https://aur.archlinux.org/yay-git.git
+gc https://aur.archlinux.org/yay-git.git
+cd yay-git/
+makepkg -si
+yay -S chrome
+cd 
+cd Dow
+ls
+mkdir Downloads
+cd Downloads/
+ls
+git clone https://AUR.archlinux.org/visual-studio-code-bin.git
+cd visual-studio-code-bin/
+makepkg -s
+sudo pacman -U visual-
+ls
+makepkg -si
+cd ..
+rm -rf visual-studio-code-bin/
+git clone https://AUR.archlinux.org/visual-studio-code-bin.git
+cd visual-studio-code-bin/
+makepkg -si
+cd 
+mkdir .config/terminator
+nano .config/terminator/config
+exit
+exit
+pacman -S obsidian
+sudo pacman -S obsidian
+yay -S chrome
+yay -S google-chrome
+pacman -S libreoffice
+sudo pacman -S libreoffice
+exit
+sway
+sudo shutdown now
+sway
+sudo su
+ls
+cd .config/
+ls
+cd swa
+nano sway/config 
+nano sway/config 
+sudo reboot now
+lsusb
+pacaman -S rtl8812au-dkms-git
+sudo pacman -S rtl8812au-dkms-git
+yay -S  rtl8812au-dkms-git
+cd .config/
+ls
+mkdir wallpapers
+ls
+ls
+mv ../Downloads/dark-world.jpg wallpapers/
+ls
+nano sway/config 
+lsblk
+lsusb
+lsusb
+sway
+ls wallpapers/
+sudo reboot now
+sway
+iftop
+git
+cd .config/
+ls
+cd mkdir waybar
+mkdir waybar
+ls
+cd wa
+cd waybar/
+ls
+touch config
+touch style.css
+nano style.css 
+nano config 
+cd ..
+ls
+nano sway/config 
+nano sway/config 
+sudo reboot now
+ls
+sway
+sudo shutdown now
+df
+pacman -S blackarch-recon
+sudo pacman -S blackarch-recon
+pacman -Sg | grep blackarch
+pacman -S blackarch-radio blackarch-hardware blackarch-drone blackarch-nfc blackarch-wireless
+sudo pacman -S blackarch-radio blackarch-hardware blackarch-drone blackarch-nfc blackarch-wireless
+pacman -S glu
+sudo pacman -S glu
+yay -S glu
+ping google.com
+yay -S glu
+pacman -S metasploit
+sudo pacman -S metasploit
+sudo pacman -U Downloads/glu-9.0.2-3-x86_64.pkg.tar.zst 
+sudo pacman -S blackarch-radio blackarch-hardware blackarch-drone blackarch-nfc blackarch-wireless
+sudo su
+sudo su
+cat ~/.bash_history 
+sudo su
+exit
+sway
+sudo shutdown now
+iwconfig
+sudo su
+cd .config/
+ls
+cd wa
+nano waybar/config 
+nano waybar/style.css 
+sway
+sudo shutdown now
+sud shutdown now
+sudo shutdown now
+pacman -S dmks
+sudo su
+yay -S rtl88xxau-aircrack-dkms-git
+exit
+cd/op
+cd /opt/
+ls
+gc https://github.com/gnab/rtl8812au.git
+cd rtl8812au/
+ls
+make
+ip a s
+uname -a
+cd ..
+rm -rf rtl8812au/
+gc https://github.com/aircrack-ng/rtl8188eus.git -b v5.3.9
+cd rtl8188eus/
+make
+cd ..
+rm -rf rtl8188eus/
+gc https://github.com/aircrack-ng/rtl8188eus.git -b v5.3.9
+cd rtl8188eus/
+sudosu
+sudo su
+exit
+sway
+sudo reboot now
+cd /opt/rtl8188eus/
+sudo su
+ip a s
+iperf
+sway
+sudo pacman -S rtl8812au-dkms-git
+sudo pacman -S rtl8812au-dkms-git
+yay -S rtl8812au-dkms-git 
+ip a s
+sudo reboot now
+exit
+ls
+l
+cd .config/
+ls
+ip a s
+pacman -S iwd
+sudo su
+iwctl
+lspci -k
+ip a s
+ip link wlan0 up
+ip link set wlan0 up
+sudo ip link set wlan0 up
+sudo su
+wifi-menu
+sudo su
+exit
+sway
+sudo su
+gc https://github.com/so-fancy/diff-so-fancy.git
+ls
+gc https://github.com/ldelossa/dotfiles.git
+mv dotfiles/ lberrymage-dotfiles
+gc https://github.com/ldelossa/dotfiles.git
+mv dotfiles/ idelossa-dotfiles
+ls
+gchttps://github.com/Palit-Invalid/sway_config.git
+gc https://github.com/Palit-Invalid/sway_config.git
+mv sway_config/ palit-sway_config/
+ls
+exit
+htop
+sudo pacman -S htop
+htop
+ls
+l
+cd diff-so-fancy/
+ls
+nano README.md 
+cd ..
+ls
+cd lberrymage-dotfiles/
+ls
+cd .config/
+ls
+sl
+ls
+l alacritty/
+cat alacritty/alacritty.yml
+cp alacritty/alacritty.yml ../.config/alacritty/
+cp alacritty/alacritty.yml ../../.config/alacritty/
+cp alacritty/alacritty.yml ../../../.config/alacritty/
+l
+ls htop/
+cat htop/htoprc 
+cp htop/htoprc ../../../.config/htop/
+htop
+ls
+l
+ls neofetch/
+ls starship/
+ls sway/
+ls waybar/
+cat starship/
+cat waybar/style.css 
+ls
+l
+ls wofi/
+cat wofi/config 
+ls yay/
+cat yay/config.json 
+cp yay/config.json ../../../.config/yay/
+l
+cd Downloads/
+ls
+git clone https://github.com/bulletmark/libinput-gestures.git
+pacman -s git-lfs
+pacman -S git-lfs
+sudo pacman -S git-lfs
+gc https://github.com/lberrymage/dotfiles.git
+gc https://github.com/ryanoasis/nerd-fonts.git
+yay -S nerd-fonts-conplete
+yay -S nerd-fonts-complete
+ls
+cd 
+cd .config/
+l
+mkdir alacritty
+ls alacritty/
+ls alacritty/
+mkdir htop
+ls
+ls htop/
+ls waybar/
+cd wa
+cd waybar/
+vim style.css 
+nano style.css 
+ls
+cd. .
+cd ..
+l
+ls yay/
+ls yay/
+l
+ls Code/
+ls
+ls obsidian/
+sway
+cd ../../
+ls .cache/
+sudo su
+cd Downloads/
+ls
+cd lberrymage-dotfiles/
+ls
+cd .config/
+sl
+l
+cd sway/
+lsl
+ls
+cat config 
+nano config 
+cd ../waybar/
+ls
+nano config 
+cd. ./
+cd ../
+cd ../
+cd ../
+ls
+cd idelossa-dotfiles/
+ls
+cd config/
+ls
+cd waybar/
+ls
+ls c
+ls custom/
+cat config 
+ls
+cd. .
+cd ..
+cp waybar/* ~/.config/waybar/
+cp -r waybar/* ~/.config/waybar/
+cd ../
+cd. ./
+cd ../
+cd lberrymage-dotfiles/
+ls
+cd .config/waybar/
+ls
+nano config 
+cd ..
+cd ..
+cd ..
+cd idelossa-dotfiles/
+ls
+nano README.md 
+ls
+cat notes.md 
+ls
+cat zshrc
+ls
+ls zsh.d/
+cd zsh
+ls
+cd zsh.d/
+cat go.sh 
+ls
+cat git.sh 
+nvim
+ls
+cat alias.sh 
+ls
+cat docker.sh 
+cd ..
+cp -r zsh.d/ ~/.config/
+ls
+nano zshrc
+ls
+cat zshrc
+ls
+cat zshrc
+cd .config/
+ls
+cd sway/
+ls
+nano config 
+nano config 
+nano config 
+nano config 
+nano config 
+cd ..
+cd waybar/
+ls
+nano config 
+mv config config.bak
+ls config
+nano config
+cd ..
+ls
+mv zsh.d/ ../.zsh.d
+cd ..
+ls
+ls -la
+touch zshrc
+nano zshrc 
+ls
+mv zshrc .config/
+mv .config/zshrc .zshrc
+man nano
+nano .zshrc 
+ls
+cd .zsh.d/
+ls
+ls
+nanoal
+nano alias.sh 
+nano fzf.sh 
+google-chrome-stable &
+exit

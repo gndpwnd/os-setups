@@ -7,7 +7,7 @@ set $right l
 
 set $term terminator
 
-set $menu wofi | xargs swaymsg exec --
+set $menu exec wofi --show drun
 
 default_border pixel 1
 

@@ -119,6 +119,7 @@ alias dv="docker volume ls"
 alias dvp="docker volume prune"
 alias dp='docker pull'
 
+alias hs="hugo && hugo server --disableFastRender"
 alias jn='jupyter notebook &'
 alias jl='jupyter lab &'
 alias dotnet='/opt/dotnet/dotnet'
